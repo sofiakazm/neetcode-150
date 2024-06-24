@@ -1,0 +1,12 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        elems = {}
+        for num in nums:
+            res = elems.get(num)
+            if res == None:
+                elems[num] = 1
+            else:
+                elems[num] += 1
+        sortlst = sorted(elems.items(), key=lambda x: x[1], reverse=True)
+        listy = list(map(lambda y: y[0], sortlst))[0:k]
+        return listy
